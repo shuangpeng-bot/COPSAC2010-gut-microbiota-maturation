@@ -379,7 +379,7 @@ write_xlsx(fisher_first4timepoints_numdif,"fisher_first4timepoints_numdif.xlsx")
 
 
 
-#####  Figure 2D. Impact of eight environmental factors on trajectory of gut microbial maturation #####
+#####  Supplementary Figure S6. Impact of eight environmental factors on trajectory of gut microbial maturation #####
 maz_all6_df #
 phy_feces_clean #
 
@@ -533,7 +533,7 @@ p_fisher_cramer
 
 
 
-##### Figure 2E. Differences in microbiota-by-age z-score (MAZ) at one year old according to environmental exposures #####
+##### Figure 2D. Differences in microbiota-by-age z-score (MAZ) at one year old according to environmental exposures #####
 phy_feces_clean#
 maz_all6_df#
 
@@ -651,7 +651,7 @@ maz_Week_all6_1y_envfactor
 
 
 
-##### Figure 2F. Environmental influences on the rate of microbiota maturation #####
+##### Figure 2E. Environmental influences on the rate of microbiota maturation #####
 maz_all6_df #
 
 ### Effect on the slope of gut microbiota age development
@@ -775,7 +775,7 @@ p_anova_lm_slope
 
 
 
-##### Figure 2 S5. GEE model examining associations between early-life environmental exposures and gut microbiota maturity across four early time points #####
+##### Supplementary Figure S8. GEE model examining associations between early-life environmental exposures and gut microbiota maturity across four early time points #####
 maz_all6_df #
 
 ###### Process paired samples from first 4 timepoints
@@ -889,7 +889,7 @@ p2_GEE_model
 
 
 
-##### Figure 2 G. Longitudinal MAZ trajectories stratified by birth season, based on children with samples at all four time points #####
+##### Figure 2 F. Longitudinal MAZ trajectories stratified by birth season, based on children with samples at all four time points #####
 
 # Prepare birth season analysis data
 birthseason_data <- maz_all6_df %>%
@@ -972,5 +972,4 @@ Wil_test_adj_season_MAZ <- Wil_test_adj_season_MAZ %>%
 
 # Export results
 write_xlsx(Wil_test_adj_season_MAZ,"Wil_test_adj_season_MAZ.xlsx")
-
 
