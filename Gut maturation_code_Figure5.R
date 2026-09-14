@@ -295,7 +295,7 @@ p_Nestedness_pct_jaccard_partitioning
 
 
 
-#####  Figure S7. Ten-fold cross-validation error as a function of the number of input species used to differentiate between high- and low- gut microbial maturation in order of variable importance #####
+#####  Figure S11. Ten-fold cross-validation error as a function of the number of input species used to differentiate between high- and low- gut microbial maturation in order of variable importance #####
 phy_species #
 
 ###  used to differentiate high vs low gut microbial maturation (ordered by variable importance)
@@ -644,7 +644,7 @@ set.seed(333)
 rf_real <- randomForest(
   x = X_train, y = y_train,
   xtest = X_test, ytest = y_test,
-  ntree = 8600, importance = TRUE, keep.forest = FALSE  # 不留森林也行
+  ntree = 8600, importance = TRUE, keep.forest = FALSE
 )
 acc_real <- mean(rf_real$test$predicted == y_test)
 acc_real# 0.6153846 with ntree =8600
@@ -680,7 +680,7 @@ cat(sprintf("Observed accuracy = %.4f; permutation p = %.4g\n", acc_real, p_perm
 
 
 
-#####  Figure S8. Microbiome compositional balance discriminated gut microbial maturity groups by age four #####
+#####  Figure S12. Microbiome compositional balance discriminated gut microbial maturity groups by age four #####
 phy_feces_clean #
 train_all6_species_1y_4yWeek #
 test_all6_species_1y_4yWeek #
@@ -706,7 +706,7 @@ test  <- test_all6_species_1y_4yWeek %>%
 X_tr <- as.matrix(train[, asv_cols, drop = FALSE])
 y_tr <- droplevels(train$Maturity_4y)
 sum(!is.finite(X_tr)); sum(!is.finite(X_te)) # Check NA/Inf (should be 0)
-#检查训练矩阵是否有 NA/Inf（应该都是 0）
+# Check for NA/Inf in the training matrix (both counts should be 0)
 
 X_te <- as.matrix(test[,  asv_cols, drop = FALSE])
 y_te <- droplevels(test$Maturity_4y)
@@ -811,7 +811,7 @@ get_pos_neg <- function(sb_obj){
   }
   
   if (is.null(pos) || is.null(neg) || length(pos)==0 || length(neg)==0) {
-    stop("无法从 selbal 结果中识别分子/分母（已尝试多版本兼容与文本解析）。")
+    stop("Unable to identify the numerator/denominator from the selbal results despite attempts using version-compatible extraction and text parsing.")
   }
   list(pos = as.character(pos), neg = as.character(neg))
 }
@@ -828,7 +828,7 @@ fit_selbal_once <- function(X, y, maxV = 20){
     out2 <- tryCatch(selbal::selbal(x = X2, y = y, maxV = maxV, zero.rep = "bayes"),
                      error = function(e) e)
     if (inherits(out2, "error")) {
-      stop(paste0("selbal() 失败：", conditionMessage(out2)))
+      stop(paste0("selbal() failed：", conditionMessage(out2)))
       #。
     } else {
       return(get_pos_neg(out2))
@@ -1106,14 +1106,14 @@ for (b in seq_len(nB)){
 valid_idx <- which(lengths(pos_list) > 0 & lengths(neg_list) > 0)
 pos_list  <- pos_list[valid_idx]
 neg_list  <- neg_list[valid_idx]
-if (length(pos_list) == 0L) stop("未能选出任何 balance，请调整网格或阈值。")
+if (length(pos_list) == 0L) stop("No balances were selected. Please adjust the grid or thresholds.")
 
 get_bal_df <- function(X, pos_list, neg_list){
   out <- lapply(seq_along(pos_list), function(i){
     pos <- pos_list[[i]]; neg <- neg_list[[i]]
     compute_balance(X[, unique(c(pos,neg)), drop = FALSE], pos, neg)
   })
-  if (length(out) == 0) stop("未能选出任何 balance。")
+  if (length(out) == 0) stop("No balances were selected.")
   out <- do.call(cbind, out)
   colnames(out) <- paste0("B", seq_len(ncol(out)))
   as.data.frame(out)
@@ -1944,7 +1944,7 @@ top_cluster_functions <- cluster_specific_functions %>%
 
 ## Load pathway description file
 
-###使用 KEGG API 获取 Pathway 描述（如果 Pathway 有对应 KEGG ID）
+### Retrieve pathway descriptions using the KEGG API (if corresponding KEGG IDs are available)
 pathway_descrip <- read.table("./picrust2_out/pathways_out/path_abun_unstrat_descrip.tsv.gz",
                               header=TRUE, sep="\t", check.names=FALSE, comment.char="")
 
@@ -2199,7 +2199,7 @@ print(mismatched_pathways)
 # Check for encoding differences
 print("Encoding mismatch examples:")
 for(pathway in mismatched_pathways) {
-  # 查找可能的匹配
+  # Find possible matches
   possible_matches <- names(row_categories)[grepl(gsub("&alpha;", "α", gsub("&beta;", "β", pathway)), names(row_categories))]
   if(length(possible_matches) > 0) {
     print(paste("Possible match:", pathway, "->", possible_matches[1]))
