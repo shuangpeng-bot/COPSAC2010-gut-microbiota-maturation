@@ -303,7 +303,7 @@ run_maaslin2_by_time <- function(tp) {
   otu_tp2 <- otu_tp2[, colSums(otu_tp2, na.rm = TRUE) > 0, drop = FALSE]
   
   # Optional abundance/prevalence filtering
-  # 这里不要求 High 和 Low 两组都必须有非零值，因为 MaAsLin2 可以把 0 作为 abundance 数据的一部分
+  # Nonzero values are not required in both High and Low groups, as MaAsLin2 accepts zeros as part of the abundance data.
   min_total_nonzero <- 10
   min_prevalence <- 0.01
   
@@ -1177,36 +1177,36 @@ Odoribacter splanchnicus # P=2.08e-06
 Alistipes putredinis # P=4.15e-11
 
 # Early-transient taxa
-pdf("D:/OneDrive - University of Copenhagen/01Project/00001_PhD thesis/3_Manuscript 2/000_投稿准备材料/5_Cell Reports/Cell Reports required materials_修改/new create Figure/M/p_Streptococcus.mitis_1w1m1y.pdf",  height=2.8,width = 0.3+0.6*3)
+pdf("file_path/p_Streptococcus.mitis_1w1m1y.pdf",  height=2.8,width = 0.3+0.6*3)
 Streptococcus_mitis_res$plot
 dev.off()
-pdf("D:/OneDrive - University of Copenhagen/01Project/00001_PhD thesis/3_Manuscript 2/000_投稿准备材料/5_Cell Reports/Cell Reports required materials_修改/new create Figure/M/p_Gemella.sp._1w1m1y.pdf",  height=2.8,width = 0.3+0.6*3)
+pdf("file_path/p_Gemella.sp._1w1m1y.pdf",  height=2.8,width = 0.3+0.6*3)
 Gemella_sp_res$plot 
 dev.off()
 # Early-persistent taxa
-pdf("D:/OneDrive - University of Copenhagen/01Project/00001_PhD thesis/3_Manuscript 2/000_投稿准备材料/5_Cell Reports/Cell Reports required materials_修改/new create Figure/M/p_Blautia.wexlerae_1w1m1y.pdf",  height=2.8,width = 0.3+0.6*3)
+pdf("file_path/p_Blautia.wexlerae_1w1m1y.pdf",  height=2.8,width = 0.3+0.6*3)
 Blautia_wexlerae_res$plot
 dev.off()
-pdf("D:/OneDrive - University of Copenhagen/01Project/00001_PhD thesis/3_Manuscript 2/000_投稿准备材料/5_Cell Reports/Cell Reports required materials_修改/new create Figure/M/p_Lachnospiraceae.sp._1w1m1y.pdf",  height=2.8,width = 0.3+0.6*3)
+pdf("file_path/p_Lachnospiraceae.sp._1w1m1y.pdf",  height=2.8,width = 0.3+0.6*3)
 Lachnospiraceae_sp._res$plot
 dev.off()
-pdf("D:/OneDrive - University of Copenhagen/01Project/00001_PhD thesis/3_Manuscript 2/000_投稿准备材料/5_Cell Reports/Cell Reports required materials_修改/new create Figure/M/p_Faecalibacterium.prausnitzii_1w1m1y4y.pdf",  height=2.8,width = 0.3+0.6*4)
+pdf("file_path/p_Faecalibacterium.prausnitzii_1w1m1y4y.pdf",  height=2.8,width = 0.3+0.6*4)
 Faecalibacterium_prausnitzii_res$plot
 dev.off()
-pdf("D:/OneDrive - University of Copenhagen/01Project/00001_PhD thesis/3_Manuscript 2/000_投稿准备材料/5_Cell Reports/Cell Reports required materials_修改/new create Figure/M/p_Bacteroides.sp._1w1m1y4y.pdf",  height=2.8,width = 0.3+0.6*4)
+pdf("file_path/p_Bacteroides.sp._1w1m1y4y.pdf",  height=2.8,width = 0.3+0.6*4)
 Bacteroides_sp._res$plot
 dev.off()
-pdf("D:/OneDrive - University of Copenhagen/01Project/00001_PhD thesis/3_Manuscript 2/000_投稿准备材料/5_Cell Reports/Cell Reports required materials_修改/new create Figure/M/p_Staphylococcus.aureus_1w1m1y4y.pdf",  height=2.8,width = 0.3+0.6*4)
+pdf("file_path/p_Staphylococcus.aureus_1w1m1y4y.pdf",  height=2.8,width = 0.3+0.6*4)
 Staphylococcus_aureus_res$plot
 dev.off()
-pdf("D:/OneDrive - University of Copenhagen/01Project/00001_PhD thesis/3_Manuscript 2/000_投稿准备材料/5_Cell Reports/Cell Reports required materials_修改/new create Figure/M/p_Streptococcus.salivarius_1w1m1y4y.pdf",  height=2.8,width = 0.3+0.6*4)
+pdf("file_path/p_Streptococcus.salivarius_1w1m1y4y.pdf",  height=2.8,width = 0.3+0.6*4)
 Streptococcus_salivarius_res$plot
 dev.off()
 # Late-persistent taxa
-pdf("D:/OneDrive - University of Copenhagen/01Project/00001_PhD thesis/3_Manuscript 2/000_投稿准备材料/5_Cell Reports/Cell Reports required materials_修改/new create Figure/M/p_Odoribacter.splanchnicus_1w1m1y4y5y6y.pdf",  height=2.8,width = 0.3+0.6*6)
+pdf("file_path/p_Odoribacter.splanchnicus_1w1m1y4y5y6y.pdf",  height=2.8,width = 0.3+0.6*6)
 Odoribacter_splanchnicus_res$plot
 dev.off()
-pdf("D:/OneDrive - University of Copenhagen/01Project/00001_PhD thesis/3_Manuscript 2/000_投稿准备材料/5_Cell Reports/Cell Reports required materials_修改/new create Figure/M/p_Alistipes.putredinis_1w1m1y4y5y6y.pdf",  height=2.8,width = 0.3+0.6*6)
+pdf("file_path/p_Alistipes.putredinis_1w1m1y4y5y6y.pdf",  height=2.8,width = 0.3+0.6*6)
 Alistipes_putredinis_res$plot
 dev.off()
 
