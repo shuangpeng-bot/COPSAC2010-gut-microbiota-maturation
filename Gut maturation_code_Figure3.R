@@ -762,7 +762,7 @@ deg_freq_df <- degree_df %>%
     ) %>%
     mutate(
       x = median_deg / 10,
-      y = max_y + 0.01,  # 稍微上移一点，防止重叠
+      y = max_y + 0.01,
       label = paste0("Median: ", round(median_deg, 1))
     )
   
